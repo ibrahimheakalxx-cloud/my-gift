@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <title>هدية خاصة</title>
     <style>
-        body { 
-    margin: 0; 
-    padding: 0; 
-    #bg-video {
+        body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#bg-video {
     position: fixed;
     right: 0;
     bottom: 0;
@@ -16,11 +22,6 @@
     z-index: -1; 
     object-fit: cover;
 }
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    height: 100vh; 
-} 
         #login-screen { text-align: center; color: white; }
         #login-screen input { padding: 10px; margin: 10px; border-radius: 5px; border: none; font-size: 16px; text-align: center; }
         #login-screen button { padding: 10px 20px; border-radius: 5px; border: none; background-color: #e91e63; color: white; font-size: 16px; cursor: pointer; font-weight: bold; }
