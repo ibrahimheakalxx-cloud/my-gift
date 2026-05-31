@@ -7,10 +7,15 @@
         body { 
     margin: 0; 
     padding: 0; 
-    background-image: url('bg.jpg'); 
-    background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat;
+    #bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1; 
+    object-fit: cover;
+}
     display: flex; 
     justify-content: center; 
     align-items: center; 
@@ -31,7 +36,9 @@
     </style>
 </head>
 <body>
-  <audio id="myAudio" loop>
+ <video autoplay loop muted playsinline id="bg-video">
+  <source src="bg.mp4" type="video/mp4">
+</video> <audio id="myAudio" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 <script>
