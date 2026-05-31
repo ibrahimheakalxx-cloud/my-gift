@@ -4,7 +4,18 @@
     <meta charset="UTF-8">
     <title>هدية خاصة</title>
     <style>
-        body { margin: 0; padding: 0; background-color: #111; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; font-family: Arial, sans-serif; }
+        body { 
+    margin: 0; 
+    padding: 0; 
+    background-image: url('bg.jpg'); 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+} 
         #login-screen { text-align: center; color: white; }
         #login-screen input { padding: 10px; margin: 10px; border-radius: 5px; border: none; font-size: 16px; text-align: center; }
         #login-screen button { padding: 10px 20px; border-radius: 5px; border: none; background-color: #e91e63; color: white; font-size: 16px; cursor: pointer; font-weight: bold; }
@@ -20,7 +31,15 @@
     </style>
 </head>
 <body>
-    <div id="login-screen">
+  <audio id="myAudio" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+<script>
+  document.body.addEventListener('click', function() {
+    var audio = document.getElementById("myAudio");
+    audio.play();
+  });
+</script>  <div id="login-screen">
         <h2>أدخل الباسورد عشان تشوف الهدية 🎁</h2>
         <input type="password" id="password-input" placeholder="اكتب الباسورد هنا">
         <br>
