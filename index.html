@@ -5,24 +5,23 @@
     <title>هدية خاصة</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
-        #bg-video {
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
-            z-index: -1; 
-            object-fit: cover;
-        }
-
+#bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1; 
+    object-fit: cover;
+}
         #login-screen { text-align: center; color: white; }
         #login-screen input { padding: 10px; margin: 10px; border-radius: 5px; border: none; font-size: 16px; text-align: center; }
         #login-screen button { padding: 10px 20px; border-radius: 5px; border: none; background-color: #e91e63; color: white; font-size: 16px; cursor: pointer; font-weight: bold; }
@@ -30,31 +29,39 @@
         .cube-container { perspective: 800px; }
         .cube { width: 200px; height: 200px; position: relative; transform-style: preserve-3d; animation: rotate 10s infinite linear; }
         .face { position: absolute; width: 200px; height: 200px; border: 2px solid #fff; background-size: cover; background-position: center; }
-        .front { transform: translateZ(100px); background-image: url('1.jpeg'); }
-        .back { transform: rotateY(180deg) translateZ(100px); background-image: url('2.jpeg'); }
-        .right { transform: rotateY(90deg) translateZ(100px); background-image: url('3.jpeg'); }
-        .left { transform: rotateY(-90deg) translateZ(100px); background-image: url('4.jpeg'); }
+    .front { transform: translateZ(100px); background-image: url('1.jpeg'); }
+    .back { transform: rotateY(180deg) translateZ(100px); background-image: url('2.jpeg'); }
+    .right { transform: rotateY(90deg) translateZ(100px); background-image: url('3.jpeg'); }
+    .left { transform: rotateY(-90deg) translateZ(100px); background-image: url('4.jpeg'); }
         @keyframes rotate { from { transform: rotateY(0deg) rotateX(10deg); } to { transform: rotateY(360deg) rotateX(10deg); } }
     </style>
 </head>
 <body>
-
-    <video autoplay loop muted playsinline id="bg-video">
-        <source src="bg.mp4" type="video/mp4">
-    </video> 
-
-    <audio id="myAudio" loop>
-        <source src="music.m4a" type="audio/mp4">
-    </audio>
-
-    <div id="login-screen">
+<audio id="myAudio" loop>
+  <source src="music.m4a" type="audio/mp4">
+</audio>
+<script>
+  document.body.addEventListener('click', function() {
+    var audio = document.getElementById("myAudio");
+    audio.play();
+  });
+</script> <video autoplay loop muted playsinline id="bg-video">
+  <source src="bg.mp4" type="video/mp4">
+</video> <audio id="myAudio" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+<script>
+  document.body.addEventListener('click', function() {
+    var audio = document.getElementById("myAudio");
+    audio.play();
+  });
+</script>  <div id="login-screen">
         <h2>أدخل الباسورد عشان تشوف الهدية 🎁</h2>
         <input type="password" id="password-input" placeholder="اكتب الباسورد هنا">
         <br>
         <button onclick="checkPassword()">دخول</button>
         <p id="error-message" style="color: #ff4d4d; display: none;">الباسورد غلط، حاول تاني!</p>
     </div>
-
     <div id="gift-screen" class="cube-container">
         <div class="cube">
             <div class="face front"></div>
@@ -63,15 +70,7 @@
             <div class="face left"></div>
         </div>
     </div>
-
     <script>
-        // تشغيل الموسيقى مع أول ضغطة
-        document.body.addEventListener('click', function() {
-            var audio = document.getElementById("myAudio");
-            audio.play();
-        });
-
-        // فحص الباسورد
         function checkPassword() {
             var pass = document.getElementById('password-input').value;
             if (pass === "1234") {
